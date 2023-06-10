@@ -17,7 +17,20 @@ class User:
         else:
             print("Insufficient balance.")
 
-    
+    def transfer(self, amount, recipient):
+        if self.balance >= amount:
+            self.balance -= amount
+            recipient.balance += amount
+            self.transactions.append(f"Transfer: -{amount} to {recipient.account_number}")
+            recipient.transactions.append(f"Transfer: +{amount} from {self.account_number}")
+        else:
+            print("Insufficient balance.")
+
+    def check_balance(self):
+        return self.balance
+
+    def check_transaction_history(self):
+        return self.transactions
 
 
 
