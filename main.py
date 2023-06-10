@@ -21,8 +21,8 @@ class User:
         if self.balance >= amount:
             self.balance -= amount
             recipient.balance += amount
-            self.transactions.append(f"Transfer: -{amount} to {recipient.account_number} and his/her name: {recipient.name}")
-            recipient.transactions.append(f"Transfer: +{amount} from {self.account_number} and his/her name: {recipient.name}")
+            self.transactions.append(f"Transfer: -{amount} to {recipient.account_number} and recipient name: {recipient.name}")
+            recipient.transactions.append(f"Transfer: +{amount} from {self.account_number} and Sender name: {self.name}")
         else:
             print("Insufficient balance.")
 
@@ -33,4 +33,39 @@ class User:
         return self.transactions
 
 
+class Admin:
+    def __init__(self):
+        self.users = []
+        self.total_balance = 0
+        self.total_loan_amount = 0
+        self.loan_feature_enabled = True
+
+    def create_account(self, name, account_number, balance=0):
+        new_user = User(name, account_number, balance)
+        self.users.append(new_user)
+        self.total_balance += balance
+
+    def check_total_balance(self):
+        return self.total_balance
+
+    def check_total_loan_amount(self):
+        return self.total_loan_amount
+
+    def enable_loan_feature(self):
+        self.loan_feature_enabled = True
+
+    def disable_loan_feature(self):
+        self.loan_feature_enabled = False
+
+    def perform_loan(self, user):
+        if self.loan_feature_enabled:
+            loan_amount = user.balance * 2
+            user.balance += loan_amount
+            user.loan_amount += loan_amount
+            self.total_balance += loan_amount
+            self.total_loan_amount += loan_amount
+            user.transactions.append(f"Loan: +{loan_amount}")
+            return loan_amount
+        else:
+            return 0
 
