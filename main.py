@@ -71,12 +71,15 @@ class Admin:
 
 
 admin = Admin()
-admin.create_account("Shah Jalal", "IIBL-35346", 1000)
+admin.create_account("Shah Jalal", "IIBL-35346", 1200)
 admin.create_account("Farabi", "IIBL-67890", 500)
 admin.create_account("Shaimum", "IIBL-23469", 1500)
-admin.create_account("Mamun", "IIBL-64381", 24000)
+admin.create_account("Mamun", "IIBL-64381", 22000)
 
 user1, user2, user3, user4 = admin.users
+
+print('=============> Before transactions <===================')
+print()
 
 print(f"The balance of {user1.name}: {user1.check_balance()}") 
 print(f"The balance of {user2.name}: {user2.check_balance()}")
@@ -84,17 +87,12 @@ print(f"The balance of {user3.name}: {user3.check_balance()}")
 print(f"The balance of {user4.name}: {user4.check_balance()}")
 
 print()
-user1.deposit(900)
+user1.deposit(1000)
 user1.withdraw(100)
 user1.transfer(200, user2)
 user2.deposit(400)
 user3.withdraw(500)
 user4.transfer(18000, user1)
-
-print(f"The balance of {user1.name}: {user1.check_balance()}") 
-print(f"The balance of {user2.name}: {user2.check_balance()}")
-print(f"The balance of {user3.name}: {user3.check_balance()}")
-print(f"The balance of {user4.name}: {user4.check_balance()}")
 
 print()
 
@@ -105,8 +103,19 @@ print(f"The transaction history of {user4.name}: {user4.check_transaction_histor
 
 print()
 
+print('==============> After transactions <=================')
+print()
+print(f"The balance of {user1.name}: {user1.check_balance()}") 
+print(f"The balance of {user2.name}: {user2.check_balance()}")
+print(f"The balance of {user3.name}: {user3.check_balance()}")
+print(f"The balance of {user4.name}: {user4.check_balance()}")
+
+print()
+
 admin.enable_loan_feature()
 loan_amount = admin.perform_loan(user4)
+print('============> After loan performance <================')
+print()
 print(f"The loan amount of {user4.name}: {loan_amount}")
 print(f"{user1.name} balance: {user1.check_balance()}")
 print(f"{user2.name} balance: {user2.check_balance()}")
