@@ -11,10 +11,10 @@ Create a banking management system where-
 
     <li>Can create an account.</li>
     <li>Can deposit and withdrawal amount.</li> 
-    <li> Can check available balance.</li>
-    <li> Can transfer the amount from</li>
-    <li> Can check transaction histor</li>
-    <li> Can take a loan from the ban</li>
+    <li>Can check available balance.</li>
+    <li>Can transfer the amount from</li>
+    <li>Can check transaction histor</li>
+    <li>Can take a loan from the ban</li>
 
 <b>Note - User can only withdraw and transfer money from his account if he has money in his account.
 If a user is unable to withdraw the amount of money he has deposited in the bank, he will get a message that the bank is bankrupt.</b>
