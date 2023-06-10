@@ -8,11 +8,13 @@ class User:
 
     def deposit(self, amount):
         self.balance += amount
+        admin.total_bank_balance += amount
         self.transactions.append(f"Deposit: +{amount}")
 
     def withdraw(self, amount):
         if self.balance >= amount:
             self.balance -= amount
+            admin.total_bank_balance -= amount
             self.transactions.append(f"Withdrawal: -{amount}")
         else:
             print("Insufficient balance.")
@@ -85,6 +87,7 @@ print(f"The balance of {user1.name}: {user1.check_balance()}")
 print(f"The balance of {user2.name}: {user2.check_balance()}")
 print(f"The balance of {user3.name}: {user3.check_balance()}")
 print(f"The balance of {user4.name}: {user4.check_balance()}")
+print("The total available balance of the bank:", admin.check_total_bank_balance())
 
 print()
 user1.deposit(1000)
@@ -109,6 +112,7 @@ print(f"The balance of {user1.name}: {user1.check_balance()}")
 print(f"The balance of {user2.name}: {user2.check_balance()}")
 print(f"The balance of {user3.name}: {user3.check_balance()}")
 print(f"The balance of {user4.name}: {user4.check_balance()}")
+print("The total available balance of the bank:", admin.check_total_bank_balance())
 
 print()
 
