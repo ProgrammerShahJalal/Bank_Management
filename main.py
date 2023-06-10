@@ -21,8 +21,8 @@ class User:
         if self.balance >= amount:
             self.balance -= amount
             recipient.balance += amount
-            self.transactions.append(f"Transfer: -{amount} to {recipient.account_number}")
-            recipient.transactions.append(f"Transfer: +{amount} from {self.account_number}")
+            self.transactions.append(f"Transfer: -{amount} to {recipient.account_number} and his/her name: {recipient.name}")
+            recipient.transactions.append(f"Transfer: +{amount} from {self.account_number} and his/her name: {recipient.name}")
         else:
             print("Insufficient balance.")
 
