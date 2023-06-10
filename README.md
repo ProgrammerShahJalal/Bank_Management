@@ -18,7 +18,8 @@ Create a banking management system where-
 <li>Can take a loan from the bank twice of his total amount..
 </li>
 
-
+</br>
+</br>
 <b>Note - User can only withdraw and transfer money from his account if he has money in his account.
 If a user is unable to withdraw the amount of money he has deposited in the bank, he will get a message that the bank is bankrupt.</b>
 
